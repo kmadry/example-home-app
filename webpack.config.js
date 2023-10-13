@@ -10,6 +10,10 @@ module.exports = {
     mode: "development",
     devServer: {
         port: 3000,
+        historyApiFallback: true,
+    },
+    output: {
+      publicPath: 'http://localhost:3000/'
     },
     module: {
         rules: [
@@ -57,7 +61,8 @@ module.exports = {
             // This URL provides three important pieces of information: the module's name is "Header", it is hosted on "localhost:3001", 
             // and its module definition is "remoteEntry.js".
             remotes: { 
-                "HeaderApp": "HeaderApp@http://localhost:3001/remoteEntry.js",            
+                "HeaderApp": "HeaderApp@http://localhost:3001/remoteEntry.js",  
+                "SitesApp": "SitesApp@http://localhost:3002/remoteEntry.js",            
             },
             shared: {  // and shared
                 ...dependencies,  // other dependencies
@@ -68,6 +73,9 @@ module.exports = {
                 "react-dom": { // react-dom
                     singleton: true,
                     requiredVersion: dependencies["react-dom"],
+                },
+                'react-router-dom': {
+                  singleton: true,
                 },
             },
         }),

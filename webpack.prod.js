@@ -43,6 +43,7 @@ module.exports = {
             // and its module definition is "remoteEntry.js".
             remotes: { 
                 "HeaderApp": "HeaderApp@http://example-header-app-13.s3-website.eu-north-1.amazonaws.com/remoteEntry.js",            
+                "SitesApp": "SitesApp@http://example-sites-app.s3-website.eu-north-1.amazonaws.com/remoteEntry.js",            
             },
             shared: {  // and shared
                 ...dependencies,  // other dependencies
@@ -53,6 +54,9 @@ module.exports = {
                 "react-dom": { // react-dom
                     singleton: true,
                     requiredVersion: dependencies["react-dom"],
+                },
+                'react-router-dom': {
+                  singleton: true,
                 },
             },
         }),
